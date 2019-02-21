@@ -1,28 +1,31 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
+/** React **/
+import React, {Component} from 'react';
+
+/** Styling **/
 import './App.css';
 
+/** Components **/
+import Header from "./components/Header/Header";
+import MainPage from "./components/MainPage/MainPage";
+
+/** Routing **/
+import {Switch, Route, withRouter} from 'react-router-dom'
+
+import * as ROUTES from './routing/Routes'
+
 class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
-    );
-  }
+    render() {
+        return (
+            <React.Fragment>
+                <Header/>
+                <Switch>
+                <Route exact path={ROUTES.ROOT} render={() => (
+                   <MainPage/>
+                )}/>
+                </Switch>
+            </React.Fragment>
+        );
+    }
 }
 
-export default App;
+export default withRouter(App);
