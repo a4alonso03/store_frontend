@@ -1,4 +1,83 @@
+@import "../../../styles/partials/global";
+
 .bm-burger-button {
-  height: 13px;
-  width: 13px;
+  position: fixed;
+  width: 30px;
+  height: 20px;
+  left: 13px;
+  top: 13px;
 }
+
+/* Color/shape of burger icon bars */
+.bm-burger-bars {
+  background: #373a47;
+}
+
+/* Position and sizing of clickable cross button */
+.bm-cross-button {
+  height: 24px;
+  width: 24px;
+}
+
+.bm-item:not(:first-child) {
+  border-bottom: 1px solid gray;
+  text-decoration: none;
+  margin: 2rem 2rem;
+  color: gray;
+  line-height: 3rem;
+  font-weight: lighter;
+}
+
+/* Color/shape of close button cross */
+.bm-cross {
+  background: #bdc3c7;
+}
+
+/* General sidebar styles */
+.bm-menu {
+  background: $card-background-color;
+  font-size: 1.15em;
+  font-family: $font-main;
+  outline: none;
+  overflow: hidden;
+}
+
+/* Wrapper for item list */
+.bm-item-list {
+  color: white;
+
+}
+
+/* Styling of overlay */
+.bm-overlay {
+  background: rgba(0, 0, 0, 0.3);
+}
+
+.no-user {
+  color: black;
+  background-color: $card-background-color;
+  margin: 4rem 2rem;
+}
+
+.no-user a {
+  color: $default-link-color;
+  text-decoration: none;
+
+}
+
+.no-user * {
+  margin: 0;
+}
+
+@media (min-width: 574px) {
+  .hero button{
+
+  }
+}
+
+@media (min-width: 992px) {
+  .bm-burger-button {
+    display: none;
+  }
+}
+

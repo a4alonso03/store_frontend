@@ -1,6 +1,14 @@
 @import "reset";
+@import url('https://fonts.googleapis.com/css?family=Lato');
+
+
+$font-main: 'Lato', sans-serif;
+
+$header-height: 3rem;
 
 $background-color: white;
 $card-background-color: #f9f9f9;
 $main-action-color: #eb0028;
+
+$default-link-color: #09c;
 

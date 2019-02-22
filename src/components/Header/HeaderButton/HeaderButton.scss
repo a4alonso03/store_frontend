@@ -1,0 +1,22 @@
+.header-button{
+  height: 2.5rem;
+  width: 5rem;
+  display: flex;
+  margin: 0 0.5rem;
+}
+
+.header-button:hover {
+  border-bottom: 3px solid red;
+
+}
+
+.header-button img {
+  height: 2rem;
+  width: 2rem;
+  margin-top: 4px;
+}
+
+.header-button h2 {
+  margin: auto;
+  font-size: 0.8rem;
+}
