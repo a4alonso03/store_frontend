@@ -1,2 +1,2 @@
-export const baseURL = "";
-export const logIn = "";
+export const baseURL = "http://localhost:5000";
+export const logIn = "/login";

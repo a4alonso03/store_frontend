@@ -2,15 +2,14 @@
 @import "../../styles/mixins/InputFields";
 @import "../../styles/mixins/Buttons";
 
-
-.login-page {
+.register-page {
   background-color: $card-background-color;
   height: 100rem;
   overflow: hidden;
   min-height: 90vh;
 }
 
-.login-container {
+.register-container {
   margin-top: 1.25rem;
   font-family: $font-main;
   display: flex;
@@ -18,32 +17,23 @@
   align-items: center;
 }
 
-.login-container h1 {
+.register-container h1 {
   text-align: center;
   font-weight: 100;
+  font-size: 2rem;
 }
 
-.login-input {
+.sign-up-input {
   @include standard-input;
   width: 18rem;
   margin: 1rem;
 }
 
-.login-button {
-  @include formButton;
-  padding: 0.3rem;
-}
-
-.login-error{
+.form-error {
   color: red;
 }
 
-.no-account {
-  color: gray;
-}
-
-@media (min-width: 992px) {
-  .login-container {
-    margin-top: 5rem;
-  }
+.register-button{
+  @include formButton;
+  padding: 0.5rem;
 }

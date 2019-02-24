@@ -1,0 +1,9 @@
+@import "../partials/global";
+
+@mixin standard-input {
+  box-sizing: border-box;
+  padding: 0.5rem;
+  font-size: 1rem;
+  border: 1px solid gray;
+  border-radius: 2px;
+}

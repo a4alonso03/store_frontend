@@ -1,0 +1,10 @@
+@import "../partials/global";
+
+@mixin formButton {
+  background-color: $main-action-color;
+  color: white;
+  width: 18rem;
+  border: none;
+
+}
+
