@@ -13,6 +13,7 @@ import * as ROUTES from './routing/Routes'
 /** Styling **/
 import './App.css';
 import LoginPage from "./components/LoginPage/LoginPage";
+import SignUpPage from "./components/SignUpPage/SignUpPage";
 
 
 class App extends Component {
@@ -25,10 +26,13 @@ class App extends Component {
                     <Route exact path={ROUTES.ROOT} render={() => (
                         <MainPage/>
                     )}/>
-
                     <Route exact path={ROUTES.SIGN_IN} render={() => (
                         <LoginPage/>
                     )}/>
+                    <Route exact path={ROUTES.SIGN_UP} render={() => (
+                        <SignUpPage/>
+                    )}/>
+
                 </Switch>
             </React.Fragment>
         );
