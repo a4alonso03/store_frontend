@@ -10,6 +10,9 @@ import isEmail from 'validator/lib/isEmail';
 import * as ROUTES from '../../routing/Routes'
 import {Link, withRouter} from 'react-router-dom';
 
+/** HTTP **/
+import {registerRequest} from './../../http/UserRequests';
+
 class SignUpPage extends Component {
     state = {
         name: "",
@@ -19,7 +22,8 @@ class SignUpPage extends Component {
         confirmPassword: "",
         badEmail: false,
         badPassword: false,
-        passwordNotMatch: false
+        passwordNotMatch: false,
+        registerError: false
     };
 
     handleInputChange = (event) => {
@@ -36,8 +40,9 @@ class SignUpPage extends Component {
             case "email":
                 console.log("state changed");
                 if(!isEmail(input)) {
-                    console.log("is a bad email")
-                    this.setState({badEmail: true})
+                    console.log("is a bad email");
+                    this.setState({badEmail: true});
+                    console.log(this.state);
                 }
                 this.setState({badEmail: false});
                 return;
@@ -59,9 +64,24 @@ class SignUpPage extends Component {
 
     attemptRegister = () =>{
           if(this.state.badEmail === false && this.state.badPassword === false && this.state.passwordNotMatch === false ){
-
+            registerRequest(this.state.name, this.state.lastName, this.state.email, this.state.password).then(response => {
+                if (response.ok) {
+                    return response.json();
+                }
+                else {
+                    this.setState({registerError: true});
+                }
+            }).then(customResponse => {
+                if(customResponse != null){
+                    this.props.history.push(ROUTES.SIGN_IN);
+                }else {
+                    this.setState({registerError: true});
+                }
+            })
           }
     };
+
+
 
     render() {
         const emailError = this.state.badEmail === true ? <p className="form-error"> Please input a valid email </p> : null;

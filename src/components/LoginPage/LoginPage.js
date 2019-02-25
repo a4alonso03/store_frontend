@@ -9,7 +9,7 @@ import './LoginPage.scss'
 import {Container, Col, Row} from "react-bootstrap";
 
 /** Networking **/
-import {loginRequest} from "../../http/UserRequests";
+import {loginRequest, getUserByUsername} from "../../http/UserRequests";
 
 /** Routing **/
 import * as ROUTES from '../../routing/Routes'
@@ -37,12 +37,28 @@ class LoginPage extends Component {
     attemptLogin = () => {
         loginRequest(this.state.email, this.state.password).then(response => {
             if (response.ok) {
-                console.log(response.headers.get('Authorization'));
-                localStorage.setItem("token", response.headers.get('Authorization').split(" ")[1]);
-                this.props.loginUser(response.headers.get('Username'));
+                this.loginSuccess(response.headers.get('Authorization').split(" ")[1], response.headers.get('Username'));
                 this.props.history.push(ROUTES.ROOT);
             } else {
-                this.setState({loginError: true})
+                this.setState({loginError: true});
+            }
+        })
+    };
+
+    loginSuccess = (token, username) => {
+        getUserByUsername(username).then(response => {
+            if(response.ok) {
+                return response.json();
+            }else {
+                console.log("este falla");
+                this.setState({loginError: true});
+                return null;
+            }
+        }).then(customResponse => {
+            if(customResponse != null){
+                this.props.loginUser(customResponse, token);
+            }else {
+                this.setState({loginError: true});
             }
         })
     };
@@ -95,8 +111,8 @@ class LoginPage extends Component {
 
 const mapDispatchToProps = dispatch => {
     return {
-        loginUser: (username) => {
-            dispatch({type: LOGIN_USER, username})
+        loginUser: (response, token) => {
+            dispatch({type: LOGIN_USER, response, token})
         }
     }
 };

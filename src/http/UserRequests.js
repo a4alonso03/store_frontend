@@ -1,8 +1,11 @@
-import {baseURL, logIn} from "./PathConstants";
+import {baseURL, logIn, signUp, user} from "./PathConstants";
 
 export const loginRequest = (user, pass) => {
     return fetch(baseURL + logIn, {
         method: 'post',
+        headers: {
+            "Content-Type": "application/json"
+        },
         body: JSON.stringify({
             "username": user,
             "password": pass
@@ -10,7 +13,29 @@ export const loginRequest = (user, pass) => {
     })
 };
 
-/*
-headers: {
-    "Authorization": "Bearer " + localStorage.getItem('token')
-}*/
+export const registerRequest = (name, lastName, email, password) => {
+    return fetch(baseURL + user + signUp,  {
+        method: 'post',
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            "username": email,
+            "password": password,
+            "name": name,
+            "lastName": lastName
+        })
+    })
+};
+
+export const getUserByUsername = username => {
+    return fetch(baseURL + user + "/" + username, {
+        method: 'get',
+        headers: {
+            "Authorization": "Bearer " + localStorage.getItem('token')
+        }
+    })
+};
+
+
+
