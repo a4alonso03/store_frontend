@@ -46,6 +46,8 @@ class LoginPage extends Component {
     };
 
     loginSuccess = (token, username) => {
+        localStorage.setItem("token", token);
+
         getUserByUsername(username).then(response => {
             if(response.ok) {
                 return response.json();

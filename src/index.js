@@ -22,6 +22,8 @@ let customStore = Redux.createStore(
     Reducer,
     window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
 
+console.log(customStore.getState());
+
 ReactDOM.render(
     <BrowserRouter>
         <ReactRedux.Provider store={customStore}>

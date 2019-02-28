@@ -29,6 +29,8 @@ export const registerRequest = (name, lastName, email, password) => {
 };
 
 export const getUserByUsername = username => {
+    console.log(localStorage.getItem('token'));
+
     return fetch(baseURL + user + "/" + username, {
         method: 'get',
         headers: {

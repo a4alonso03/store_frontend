@@ -1,0 +1,25 @@
+
+.user-address-item-container {
+  width: 85%;
+  border: 2px solid gray;
+  margin-bottom: 1rem;
+
+  h3 {
+    font-size: 1rem;
+    padding-left: 1rem;
+    padding-top: 1rem;
+  }
+
+  p {
+    color: gray;
+    margin-top: 1rem;
+    padding-left: 1.5rem;
+  }
+}
+
+.selected-address {
+  border: 2px solid red;
+  box-shadow: 4px 4px darkgray;
+  color: black;
+}
+

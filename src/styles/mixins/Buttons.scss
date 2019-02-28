@@ -8,3 +8,12 @@
 
 }
 
+@mixin resetButton {
+  background-color: transparent;
+  border: none;
+  color: inherit;
+  padding: 0;
+  font: inherit;
+  outline: inherit;
+}
+

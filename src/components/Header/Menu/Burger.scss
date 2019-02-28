@@ -1,4 +1,5 @@
 @import "../../../styles/partials/global";
+@import "../../../styles/mixins/Buttons";
 
 .bm-burger-button {
   position: fixed;
@@ -62,11 +63,23 @@
 .no-user a {
   color: $default-link-color;
   text-decoration: none;
-
 }
 
 .no-user * {
   margin: 0;
+}
+
+.user-logged-in {
+  color: black;
+  background-color: $card-background-color;
+  margin: 4rem 2rem;
+  text-decoration: none;
+}
+
+.logout-button {
+  @include resetButton;
+  color: #09c;
+  cursor: pointer;
 }
 
 @media (min-width: 574px) {

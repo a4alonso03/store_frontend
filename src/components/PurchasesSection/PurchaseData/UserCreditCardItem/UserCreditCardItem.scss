@@ -1,0 +1,22 @@
+
+.user-card-item-container {
+  width: 85%;
+  border: 2px solid gray;
+  margin-bottom: 1rem;
+
+  p {
+    margin-top: 1rem;
+    padding-left: 1rem;
+  }
+
+  p:last-child {
+    font-style: italic;
+    font-size: 0.6rem;
+  }
+}
+
+.selected-card {
+  border: 2px solid blue;
+  color: black;
+  box-shadow: 4px 4px darkgray;
+}

@@ -8,8 +8,8 @@ import audio from '../../img/audio.png'
 import cases from '../../img/cases.png'
 import gear from '../../img/gear.png'
 import powerCables from '../../img/powerCables.png'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faUser, faShoppingCart } from '@fortawesome/free-solid-svg-icons'
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
+import {faUser, faShoppingCart} from '@fortawesome/free-solid-svg-icons'
 
 
 /** Components **/
@@ -19,6 +19,7 @@ import HeaderButton from './HeaderButton/HeaderButton'
 /** Routing **/
 import {withRouter} from "react-router-dom";
 import * as ROUTES from '../../routing/Routes'
+import {connect} from "react-redux";
 
 class Header extends Component {
     state = {
@@ -29,11 +30,27 @@ class Header extends Component {
         return state.isOpen;
     };
 
+    userButtonRedirectHandler = () => {
+        if (this.props.isUserLoggedIn) {
+            this.props.history.push(ROUTES.USER + "/" + this.props.loggedInUser.id);
+        } else {
+            this.props.history.push(ROUTES.SIGN_IN);
+        }
+    };
+
+    purchaseButtonRedirectHandler = () => {
+        if (this.props.isUserLoggedIn) {
+            this.props.history.push(ROUTES.PURCHASE_SECTION);
+        } else {
+            this.props.history.push(ROUTES.SIGN_IN);
+        }
+    };
+
     render() {
         let filters = null;
         let burger = null;
 
-        if(this.props.showFilters){
+        if (this.props.showFilters) {
             filters = (
                 <div className="header__button-container">
                     <HeaderButton className="header-button" image={audio} text="Audio"/>
@@ -41,13 +58,12 @@ class Header extends Component {
                     <HeaderButton className="header-button" image={gear} text="Gear"/>
                     <HeaderButton className="header-button" image={powerCables} text="Power Cables"/>
                 </div>
-            )
+            );
             burger = (
                 <BurgerMenu
                     isOpen={this.state.menuOpen}
                 />
             )
-
         }
 
         return (
@@ -59,14 +75,26 @@ class Header extends Component {
                     </div>
                     {filters}
                     <div className="header__personal-container">
-                        <FontAwesomeIcon onClick={() => this.props.history.push(ROUTES.SIGN_IN)} className="personal-container__icon" icon={faUser}/>
-                        <FontAwesomeIcon className="personal-container__icon" icon={faShoppingCart}/>
+                        <FontAwesomeIcon icon={faUser}
+                                         className="personal-container__icon"
+                                         onClick={() => this.userButtonRedirectHandler()}/>
+                        <FontAwesomeIcon icon={faShoppingCart}
+                                         className="personal-container__icon"
+                                         onClick={() => this.purchaseButtonRedirectHandler()}/>
                     </div>
                 </div>
-
             </div>
         );
     }
 }
 
-export default withRouter(Header);
+const mapStateToProps = state => {
+    return (
+        {
+            isUserLoggedIn: state.user.isUserLoggedIn,
+            loggedInUser: state.user.currentUser
+        }
+    )
+};
+
+export default withRouter(connect(mapStateToProps, null)(Header));

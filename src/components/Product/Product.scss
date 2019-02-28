@@ -1,0 +1,45 @@
+@import "../../styles/partials/global";
+
+.product-row {
+  background-color: $card-background-color;
+  font-family: $font-main;
+}
+
+.next-area-arrow-container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  font-size: 3rem;
+  color: gray;
+}
+
+.product__image-container img{
+  width: inherit;
+}
+
+.product__description-container {
+  box-sizing: border-box;
+
+  h2 {
+    font-size: 1rem;
+  }
+
+  div {
+    border-top: 1px solid gray;
+  }
+
+  p {
+    font-size: 1rem;
+  }
+
+  .add-to-cart-button {
+    color: whitesmoke;
+    background-color: $main-action-color;
+    width: inherit;
+    text-align: center;
+    padding: 0.8rem;
+    margin-bottom: 3rem;
+  }
+
+
+}

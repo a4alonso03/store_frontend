@@ -1,0 +1,33 @@
+@import "../../../../styles/partials/global";
+
+.product-list-item {
+  background-color: $card-background-color;
+  border: 1px solid gray;
+
+  img {
+    width: inherit;
+  }
+
+  h2 {
+    font-size: 0.8rem;
+    text-align: center;
+    font-weight: 100;
+  }
+
+  p {
+    text-align: center;
+  }
+}
+
+.list-item__categories-container {
+  display: flex;
+  font-size: 0.7rem;
+  justify-content: flex-end;
+
+  div {
+    color: whitesmoke;
+    background-color: $main-action-color;
+    margin: 0.3rem;
+    padding: 0 0.3rem;
+  }
+}

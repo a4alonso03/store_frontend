@@ -16,9 +16,9 @@ class MainPage extends Component {
                         <Col>
                             <MainCarousel/>
                         </Col>
-                        <Col>
-                            <ItemList/>
-                        </Col>
+                    </Row>
+                    <Row>
+                        <ItemList/>
                     </Row>
                 </Container>
             </React.Fragment>

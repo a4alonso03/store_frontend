@@ -1,0 +1,31 @@
+
+.cart-item-container {
+  display: flex;
+  border-bottom: 1px solid lightslategray;
+  img {
+    height: 9rem;
+    width: 9rem;
+    flex: 3;
+  }
+
+  svg {
+    margin: 0.5rem
+  }
+}
+
+
+.cart-item-container__data {
+  flex: 8;
+  h2 {
+    font-size: 0.9rem;
+    margin-top: 0.7rem;
+  }
+
+  p {
+    font-size: 0.6rem;
+  }
+
+  input {
+    width: 5rem;
+  }
+}

@@ -2,7 +2,6 @@
 import React, {Component} from 'react';
 
 /** Components **/
-import Header from "./components/Header/Header";
 import MainPage from "./components/MainPage/MainPage";
 
 /** Routing **/
@@ -14,6 +13,9 @@ import * as ROUTES from './routing/Routes'
 import './App.css';
 import LoginPage from "./components/LoginPage/LoginPage";
 import SignUpPage from "./components/SignUpPage/SignUpPage";
+import Product from "./components/Product/Product";
+import UserDetails from "./components/UserDetails/UserDetails";
+import PurchasesSection from "./components/PurchasesSection/PurchasesSection";
 
 
 class App extends Component {
@@ -32,6 +34,20 @@ class App extends Component {
                     <Route exact path={ROUTES.SIGN_UP} render={() => (
                         <SignUpPage/>
                     )}/>
+                    <Route exact path={ROUTES.PRODUCT + "/:id"} render={() => (
+                        <Product/>
+                    )}/>
+
+                    <Route exact path={ROUTES.USER + "/:userId"} render={() => (
+                        <UserDetails/>
+                    )}/>
+
+                    <Route exact path={ROUTES.PURCHASE_SECTION} render={() => (
+                        <PurchasesSection/>
+                    )}/>
+
+                    {/* TODO: add not found page*/}
+
 
                 </Switch>
             </React.Fragment>
