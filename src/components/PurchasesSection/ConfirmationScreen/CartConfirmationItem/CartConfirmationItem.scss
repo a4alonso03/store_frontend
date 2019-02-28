@@ -1,8 +1,23 @@
 
 
 .cart-confirmation-item {
+  display: flex;
+  padding-right: 2rem;
 
   img {
-    height: 10rem;
+    height: 9rem;
+    flex: 3;
+    margin-left: 1rem;
   }
+
 }
+
+.cart-conf-title {
+  font-size: 0.9rem;
+  margin-top: 0.7rem;
+}
+
+.cart-conf-price {
+  font-size: 0.6rem;
+}
+

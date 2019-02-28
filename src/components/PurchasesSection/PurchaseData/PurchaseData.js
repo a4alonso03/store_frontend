@@ -128,7 +128,7 @@ class PurchaseData extends Component {
                         )
                     )}
                 </div>
-                <div className="next-section-button" onClick={(event) => this.props.onSelectHandler(2, event)}>Checkout</div>
+                <div className="next-section-button" onClick={(event) => this.props.onSelectHandler(2, event)}>Confirm</div>
                 <div className="next-section-button" onClick={(event) => this.props.onSelectHandler(0, event)}>Go Back</div>
             </div>
         );

@@ -66,6 +66,14 @@ export default function user(state = {currentUser, isUserLoggedIn, selectedAddre
                 }
             );
 
+        case ACTIONS.CREATE_PURCHASE:
+            let updatedPurchases = state.purchases;
+            purchases.push(action.purchase);
+            return Object.assign(
+                {},
+                state, {
+                    purchases: [...updatedPurchases]
+                });
         default:
             return state;
     }

@@ -1,0 +1,23 @@
+@import "../../styles/partials/global";
+
+.tab-container {
+  margin-top: 3rem;
+  font-family: $font-main;
+}
+
+.nav-pills *{
+  color: black;
+
+}
+
+.nav-pills .nav-link.active {
+  background-color: gray;
+}
+
+.profile-title {
+  margin-top: 2rem; //Quitarlo en laptop+
+  padding: 1rem;
+  font-size: 1rem;
+  font-weight: 100;
+  box-shadow: 0 1px 4px 0 rgba(0,0,0,.1);
+}

@@ -1,11 +1,13 @@
 import React, {Component} from 'react';
 import Header from "../Header/Header";
-import {Container, Row, Col} from "react-bootstrap";
-import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
+import {Tab, Row, Col, Nav, Container} from "react-bootstrap";
 import "react-tabs/style/react-tabs.css";
 import UserAccountPage from "./UserAccountPage/UserAccountPage";
 import {withRouter} from "react-router-dom";
 import './UserDetails.scss'
+import OrdersPage from "./OrdersPage/OrdersPage";
+import AddressPage from "./AddressPage/AddressPage";
+import PaymentPage from "./PaymentPage/PaymentPage";
 
 
 class UserDetails extends Component {
@@ -14,7 +16,7 @@ class UserDetails extends Component {
     };
 
     componentDidMount() {
-         this.setState({userId: this.props.match.params.userId});
+        this.setState({userId: this.props.match.params.userId});
     }
 
     render() {
@@ -22,25 +24,45 @@ class UserDetails extends Component {
             <React.Fragment>
                 <Header showFilters={false}/>
                 <Container>
-                    <Row>
-                        <Col xs={12}>
-                            <Tabs defaultIndex={1} onSelect={index => console.log(index)}>
-                                <TabList>
-                                    <Tab>FirstTitle</Tab>
-                                    <Tab>SecondTitle</Tab>
-                                </TabList>
-                                <TabPanel>
-                                    <UserAccountPage/>
-                                </TabPanel>
-                                <TabPanel>
-                                    <UserAccountPage/>
-                                </TabPanel>
-                            </Tabs>
-                        </Col>
-                    </Row>
+                    <Tab.Container  defaultActiveKey="first">
+                        <Row className="tab-container">
+                            <Col sm={3}>
+                                <Nav variant="pills" className="flex-column">
+                                    <Nav.Item>
+                                        <Nav.Link eventKey="first">YourProfile</Nav.Link>
+                                    </Nav.Item>
+                                    <Nav.Item>
+                                        <Nav.Link eventKey="second">Your Orders</Nav.Link>
+                                    </Nav.Item>
+                                    <Nav.Item>
+                                        <Nav.Link eventKey="third">Your addresses</Nav.Link>
+                                    </Nav.Item>
+                                    <Nav.Item>
+                                        <Nav.Link eventKey="fourth">Payment</Nav.Link>
+                                    </Nav.Item>
+                                </Nav>
+                            </Col>
+                            <Col sm={9}>
+                                <Tab.Content>
+                                    <Tab.Pane eventKey="first">
+                                        <UserAccountPage/>
+                                    </Tab.Pane>
+                                    <Tab.Pane eventKey="second">
+                                        <OrdersPage/>
+                                    </Tab.Pane>
+                                    <Tab.Pane eventKey="third">
+                                        <AddressPage/>
+                                    </Tab.Pane>
+                                    <Tab.Pane eventKey="fourth">
+                                        <PaymentPage/>
+                                    </Tab.Pane>
+                                </Tab.Content>
+                            </Col>
+                        </Row>
+                    </Tab.Container>
                 </Container>
 
-                
+
             </React.Fragment>
         );
     }
