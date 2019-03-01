@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import {Form} from 'react-bootstrap'
 import './UserAccountPage.scss'
 import {connect} from "react-redux";
 import * as ACTIONS from "../../../redux/ReducerActions";
@@ -29,44 +28,65 @@ class UserAccountPage extends Component {
         })
     };
 
+    saveUserEdit = () => {
+        let newUserData = {
+            id: this.state.id,
+            username: this.state.username,
+            name: this.state.name,
+            lastName: this.state.lastName
+        }
+
+    };
+
     render() {
+        let profileActions = null;
+
+        if (this.state.editMode) {
+            profileActions = (
+                <div>
+                    <button onClick={() => this.setState({editMode: false})}> Cancel</button>
+                    <button onClick={() => this.saveUserEdit()}> Save changes</button>
+                </div>
+            )
+        } else {
+            profileActions = (
+                <div>
+                    <button onClick={this.setState({editMode: true})}> Edit Profile</button>
+                </div>
+            )
+        }
+
         return (
             <div>
                 <h1 className="profile-title"> User Account </h1>
                 <div className="user-data-container">
-                    <p>Username</p>
+                    <label>Username</label>
                     <input name="username"
                            className="profile-input"
                            type="email"
                            value={this.state.username}
-                           disabled={this.state.editMode}
+                           disabled={true}
                            onChange={evt => this.handleInputChange(evt)}/>
                     />
+
+                    <label>Name</label>
+                    <input name="name"
+                           className="profile-input"
+                           type="text"
+                           value={this.state.name}
+                           disabled={this.state.editMode}
+                           onChange={evt => this.handleInputChange(evt)}/>
+
+                    <label>Last Name</label>
+                    <input name="lastName"
+                           className="profile-input"
+                           type="text"
+                           value={this.state.lastName}
+                           disabled={this.state.editMode}
+                           onChange={evt => this.handleInputChange(evt)}/>
+
+                    {profileActions}
                 </div>
-
-                <Form>
-                    <Form.Group>
-                        <Form.Label>Email address</Form.Label>
-                        <Form.Control type="email"
-                                      onChange={evt => this.handleInputChange(evt)}
-                                      value={this.state.currentUser.username}
-                                      disabled={this.state.editMode}/>
-                        <Form.Text className="text-muted">
-                            We'll never share your email with anyone else.
-                        </Form.Text>
-                    </Form.Group>
-
-                    <Form.Group controlId="formBasicPassword">
-                        <Form.Label>Password</Form.Label>
-                        <Form.Control type="password" placeholder="Password"/>
-                    </Form.Group>
-                    <Form.Group controlId="formBasicChecbox">
-                        <Form.Check type="checkbox" label="Check me out"/>
-                    </Form.Group>
-                    <Button variant="primary" type="submit">
-                        Submit
-                    </Button>
-                </Form>;
             </div>
         );
     }
@@ -75,7 +95,7 @@ class UserAccountPage extends Component {
 const mapStateToProps = state => {
     return (
         {
-            currentUser: state.currency.currentUser
+            currentUser: state.user.currentUser
         }
     )
 };

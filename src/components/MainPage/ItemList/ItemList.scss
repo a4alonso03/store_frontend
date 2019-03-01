@@ -1,0 +1,13 @@
+
+.paginate-container {
+  display: flex;
+  justify-content: center;
+}
+
+.pagination *{
+  font-size: 1.5rem;
+  text-decoration: none;
+  color: black;
+  font-weight: bolder;
+  margin: 1rem;
+}

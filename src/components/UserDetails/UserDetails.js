@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import Header from "../Header/Header";
 import {Tab, Row, Col, Nav, Container} from "react-bootstrap";
-import "react-tabs/style/react-tabs.css";
+//import "react-tabs/style/react-tabs.css";
 import UserAccountPage from "./UserAccountPage/UserAccountPage";
 import {withRouter} from "react-router-dom";
 import './UserDetails.scss'

@@ -39,5 +39,21 @@ export const getUserByUsername = username => {
     })
 };
 
+export const updateUserInfo = userInfo => {
+    return fetch(baseURL + user + "/", {
+        method: 'put',
+        headers: {
+            "Authorization": "Bearer " + localStorage.getItem('token')
+        },
+        body: JSON.stringify({
+            id: userInfo.id,
+            username: userInfo.username,
+            password: "",
+            name: userInfo.name,
+            lastName: userInfo.lastName
+        })
+    })
+};
+
 
 

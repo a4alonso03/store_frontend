@@ -13,3 +13,9 @@ export const getProductById = id => {
         method: 'get'
     });
 };
+
+export const getNthProductsPage = page => {
+    return fetch (baseURL + products + "/?page=" + page, {
+        method: 'get'
+    })
+}
