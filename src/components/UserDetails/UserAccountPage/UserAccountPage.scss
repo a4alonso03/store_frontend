@@ -14,6 +14,10 @@
   padding: 0.5rem 1rem;
 }
 
+.logout {
+  margin-top: 3rem;
+}
+
 .input-button-container {
   margin-top: 2rem;
   display: flex;
@@ -38,5 +42,12 @@
     box-shadow: 2px 2px 9px 0px gray;
     font-size: 0.9rem;
 
+  }
+}
+
+
+@media (min-width: 992px) {
+  .logout {
+    float: right;
   }
 }

@@ -3,7 +3,8 @@ import './UserCreditCardItem.scss'
 
 class UserCreditCardItem extends Component {
     coverCCNumber = number => {
-        return "holis";
+        let last4 = number.substr(number.length - 4); // => "Tabs1"
+        return "**** **** **** " + last4;
     };
 
     render() {

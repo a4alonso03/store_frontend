@@ -4,7 +4,8 @@ export const getUserAddressesRequest = id => {
     return fetch(baseURL + userAddresses + "/" + id, {
         method: 'get',
         headers: {
-            "Authorization": "Bearer " + localStorage.getItem('token')
+            "Authorization": "Bearer " + localStorage.getItem('token'),
+            "Content-Type": "application/json"
         }
     })
 };

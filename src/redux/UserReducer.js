@@ -4,21 +4,17 @@ import Alert from 'react-s-alert';
 
 
 const currentUser = {
-    id: "3",
-    username: "a@gmail.com",
-    name: "Alonso",
-    lastName: "Garita"
 };
 
 const selectedAddress = {
-    id: 1,
-    firstName: "Alonso",
-    lastName: "Garita",
-    address: "First line address test",
-    secondAddress: "Second line address test",
-    cityTown: "Cartago",
-    phone: "1234567",
-    postalCode: "1000"
+    id: 0,
+    firstName: "",
+    lastName: "",
+    address: "",
+    secondAddress: "",
+    cityTown: "",
+    phone: "",
+    postalCode: ""
 };
 
 const selectedCard = {};
@@ -59,7 +55,7 @@ const purchases = [
 
 
 
-const isUserLoggedIn = true;
+const isUserLoggedIn = false;
 
 export default function user(state = {currentUser, isUserLoggedIn, selectedAddress, selectedCard, purchases}, action) {
     switch (action.type) {

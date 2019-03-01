@@ -21,6 +21,7 @@ class BurgerMenu extends Component {
 
     render() {
         let userInfo = null;
+        let redirectButtons = null;
 
 
         if (!this.props.isUserLoggedIn) {
@@ -34,11 +35,23 @@ class BurgerMenu extends Component {
                 </div>
             )
         } else {
+            redirectButtons = (
+                <div>
+                    <div
+                        className="burger-button-to-purchases"
+                        onClick={() => this.props.history.push(ROUTES.PURCHASE_SECTION)}>
+                        Your Purchases
+                    </div>
+                </div>
+            )
+
             userInfo = (
                 <div className="user-logged-in">
-                    <p>You are logged in as <Link to={ROUTES.USER + "/" + this.props.loggedInUser.id}> {this.props.loggedInUser.name} </Link></p>
+                    <p>You are logged in as <Link
+                        to={ROUTES.USER + "/" + this.props.loggedInUser.id}> {this.props.loggedInUser.name} </Link></p>
 
-                    <button onClick={() => this.props.logoutUser()} className="logout-button"> Sign Out {this.props.loggedInUser.username}</button>
+                    <button onClick={() => this.props.logoutUser()} className="logout-button"> Sign
+                        Out {this.props.loggedInUser.username}</button>
                 </div>
             )
         }
@@ -52,12 +65,9 @@ class BurgerMenu extends Component {
                 <div className="user-info-container">
                     {userInfo}
                 </div>
-                { /*
-                    <a id="home" className="menu-item" href="/">Home</a>
-                    < a id="about" className="menu-item" href="">About</a>
-                    <a id="contact" className="menu-item" href="">Contact</a>
-                    <a className="menu-item--small" href="">Settings</a>
-                */}
+                {redirectButtons}
+
+
             </Menu>
         );
     }

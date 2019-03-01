@@ -2,16 +2,7 @@ import * as ACTIONS from "./ReducerActions";
 
 
 const onCartItems = [
-    {
-        amount: 2,
-        product:
-            {
-                id: 8,
-                image: "https://image01.oneplus.net/ebp/201810/27/492/28fc2b95170c95497a4b22991d1a71c9_768_768.png",
-                name: "OnePlus 6T 3D Tempered Glass Screen Protector",
-                price: 20.95,
-            }
-    }
+
 ];
 
 export default function cart(state = {onCartItems}, action) {
@@ -28,7 +19,6 @@ export default function cart(state = {onCartItems}, action) {
             );
 
         case ACTIONS.REMOVE_ITEM_FROM_CART:
-            debugger
             console.log("removing item: " + action.id + " from cart");
             //state.onCartItems.splice(state.onCartItems.find(productWrapper => productWrapper.product.id === action.id), 1);
             for (let i = 0; i <state.onCartItems.length; i++) {

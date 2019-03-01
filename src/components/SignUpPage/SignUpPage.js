@@ -12,6 +12,8 @@ import {Link, withRouter} from 'react-router-dom';
 
 /** HTTP **/
 import {registerRequest} from './../../http/UserRequests';
+import Alert from 'react-s-alert';
+
 
 class SignUpPage extends Component {
     state = {
@@ -38,23 +40,28 @@ class SignUpPage extends Component {
         const input = event.target.value;
         switch (fieldName) {
             case "email":
-                console.log("state changed");
                 if(!isEmail(input)) {
-                    console.log("is a bad email");
-                    this.setState({badEmail: true});
-                    console.log(this.state);
+                    this.setState({badEmail: true}, () => {
+                        this.setState({badEmail: true})
+                    });
                 }
                 this.setState({badEmail: false});
                 return;
+
             case "password":
-                if(input.size < 5){
-                    this.setState({badPassword: true});
+                if(input.length < 5) {
+                    this.setState({badPassword: true}, () => {
+                        this.setState({badPassword: true})
+                    });
                 }
                 this.setState({badPassword: false});
                 return;
+
             case "confirmPassword":
                 if(input !== this.state.password){
-                    this.setState({passwordNotMatch: true})
+                    this.setState({passwordNotMatch: true}, () => {
+                        this.setState({passwordNotMatch: true})
+                    });
                 }
                 this.setState({passwordNotMatch: false});
                 return;
@@ -74,6 +81,7 @@ class SignUpPage extends Component {
             }).then(customResponse => {
                 if(customResponse != null){
                     this.props.history.push(ROUTES.SIGN_IN);
+                    Alert.success("User Created!", {})
                 }else {
                     this.setState({registerError: true});
                 }
@@ -85,7 +93,7 @@ class SignUpPage extends Component {
 
     render() {
         const emailError = this.state.badEmail === true ? <p className="form-error"> Please input a valid email </p> : null;
-        const passwordError = this.state.badPassword ? <p className="form-error"> Please a password over 5 characters </p> : null;
+        const passwordError = this.state.badPassword ? <p className="form-error"> Please input a password over 5 characters </p> : null;
         const passwordMatchError = this.state.passwordNotMatch ? <p className="form-error"> Passwords don't match</p> : null;
 
         return (

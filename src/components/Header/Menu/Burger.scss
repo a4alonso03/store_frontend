@@ -9,6 +9,19 @@
   top: 13px;
 }
 
+.burger-button-to-purchases {
+  background-color: $main-action-color;
+  border-radius: 4px;
+  padding: 0.5rem;
+  margin: 1rem;
+  color: white;
+
+
+  .burger-button-to-purchases * {
+
+  }
+}
+
 /* Color/shape of burger icon bars */
 .bm-burger-bars {
   background: #373a47;

@@ -6,6 +6,7 @@ import {updateUserInfo} from "../../../http/UserRequests";
 import Alert from 'react-s-alert';
 import {LOGIN_USER} from "../../../redux/ReducerActions";
 import {LOGOUT_USER} from "../../../redux/ReducerActions";
+import * as ROUTES from './../../../routing/Routes'
 
 
 class UserAccountPage extends Component {
@@ -25,6 +26,11 @@ class UserAccountPage extends Component {
             lastName: this.props.currentUser.lastName
         });
     }
+
+    handleLogout = () => {
+        this.props.logoutUser();
+        this.props.history.push(ROUTES.SIGN_IN)
+    };
 
     handleInputChange = (event) => {
         const target = event.target;
@@ -106,7 +112,7 @@ class UserAccountPage extends Component {
                     {profileActions}
                 </div>
 
-                <div className="next-section-button" onClick={() => this.props.logoutUser()}> LOGOUT </div>
+                <div className="next-section-button logout" onClick={() => this.handleLogout()}> LOGOUT </div>
             </div>
         );
     }

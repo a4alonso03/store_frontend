@@ -23,22 +23,34 @@ class AddressPage extends Component {
             if (response.ok) {
                 return response.json();
             } else {
-                Alert.error("Error displaying user addresses", {})
+                Alert.error("Este", {})
             }
         }).then(customResponse => {
             if (customResponse.data != null) {
-                if(notify) {
-                    Alert.success("Addresses Updated", {});
-                }
                 this.setState({userAddresses: customResponse.data})
             } else {
-                Alert.error("Error displaying user addresses", {})
+                Alert.error("No este", {})
             }
         })
     };
 
     componentDidMount() {
-        this.refreshAddresses(false);
+        getUserAddressesRequest(this.props.currentUserId).then(response => {
+            if (response.ok) {
+                return response.json();
+            } else {
+                Alert.error("aquí", {})
+            }
+        }).then(customResponse => {
+            if (customResponse.data != null) {
+
+                    Alert.success("Addresses Updated", {});
+
+                this.setState({userAddresses: customResponse.data})
+            } else {
+                Alert.error("Error displaying user addresses", {})
+            }
+        })
     }
 
     attemptCreateAddress = () => {
@@ -62,6 +74,14 @@ class AddressPage extends Component {
                 Alert.error("Error creating address", {})
             }
         });
+
+        this.setState({firstName: ""});
+        this.setState({lastName: ""});
+        this.setState({address: ""});
+        this.setState({secondAddress: ""});
+        this.setState({cityTown: ""});
+        this.setState({phone: ""});
+        this.setState({postalCode:""});
     };
 
     handleInputChange = (event) => {
@@ -71,17 +91,6 @@ class AddressPage extends Component {
         })
     };
 
-    attemptDeleteAddress = id => {
-        debugger
-        deleteAddressById(id).then(response => {
-            if (response.ok) {
-                Alert.success("Address deleted", {});
-                this.refreshAddresses(true);
-            }else {
-                Alert.error("Error deleting address", {});
-            }
-        })
-    }
 
     render() {
         return (
@@ -97,7 +106,7 @@ class AddressPage extends Component {
                                 <p>{address.secondAddress}</p>
                                 <p>{address.cityTown} {address.postalCode}</p>
                                 <p>{address.phone}</p>
-                                <div onClick={() => this.attemptDeleteAddress(address.id)}>Delete</div>
+
                             </Col>
                         ))}
                     </Row>
