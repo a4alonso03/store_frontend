@@ -38,7 +38,7 @@ class UserDetails extends Component {
                                         <Nav.Link eventKey="third">Your addresses</Nav.Link>
                                     </Nav.Item>
                                     <Nav.Item>
-                                        <Nav.Link eventKey="fourth">Payment</Nav.Link>
+                                        <Nav.Link eventKey="fourth" disabled>Payment</Nav.Link>
                                     </Nav.Item>
                                 </Nav>
                             </Col>
@@ -53,7 +53,7 @@ class UserDetails extends Component {
                                     <Tab.Pane eventKey="third">
                                         <AddressPage/>
                                     </Tab.Pane>
-                                    <Tab.Pane eventKey="fourth">
+                                    <Tab.Pane eventKey="fourth" >
                                         <PaymentPage/>
                                     </Tab.Pane>
                                 </Tab.Content>

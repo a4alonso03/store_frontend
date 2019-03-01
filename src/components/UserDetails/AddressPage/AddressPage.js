@@ -139,7 +139,7 @@ class AddressPage extends Component {
                                    value={this.state.postalCode}
                                    onChange={evt => this.handleInputChange(evt)}
                                    className="address-creation-input"/>
-                           <div onClick={this.attemptCreateAddress} className='next-section-button'> Create address </div>
+                           <div onClick={() => this.attemptCreateAddress()} className='next-section-button'> Create address </div>
                         </Col>
                     </Row>
 
