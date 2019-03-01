@@ -19,3 +19,18 @@
   padding-left: 2rem;
   margin-top: 2rem;
 }
+.return-section-button {
+  background-color: gray;
+}
+
+@media (min-width: 992px) {
+  .purchase-data-container {
+    margin: 4rem 10rem;
+  }
+
+  .list-container {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+}

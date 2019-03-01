@@ -36,5 +36,31 @@
   }
 }
 
+@media (min-width: 992px) {
+ .confirmation-screen-container{
+   margin: 4rem 10rem;
+ }
+
+  .cart-conf-title {
+    font-size: 1.1rem;
+  }
+
+  .cart-conf-price {
+    font-size: 0.9rem;
+  }
+
+  .address-review-container {
+    h3 {
+      font-size: 1.3rem;
+    }
+
+    p {
+      padding-left: 0.5rem;
+      font-size: 0.9rem;
+    }
+  }
+
+
+}
 
 

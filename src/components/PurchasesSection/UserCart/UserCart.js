@@ -31,7 +31,7 @@ class UserCart extends Component {
                 })}
 
                 <p className="cart-size">You have {this.props.productWrapperList.length} product(s) in your cart</p>
-                <p className="cart-total">Cart total: ${this.updateCartTotal()}</p>
+                <p className="cart-total">Cart total: ${this.updateCartTotal().toFixed(2)}</p>
                 <div className="next-section-button" onClick={(event) => this.props.onSelectHandler(1, event)}>Checkout</div>
             </div>
         );

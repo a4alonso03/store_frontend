@@ -7,7 +7,7 @@ import './MainCarousel.scss'
 const MainCarousel = () => {
 
     return (
-        <Carousel interval={null}>
+        <Carousel >
             <Carousel.Item>
                 <MainCarouselItem
                     srcBig={"https://firebasestorage.googleapis.com/v0/b/brainstationstore.appspot.com/o/bulletsBig.jpg?alt=media&token=860ffacd-b81e-4d8b-922f-83e411fdacc6"}

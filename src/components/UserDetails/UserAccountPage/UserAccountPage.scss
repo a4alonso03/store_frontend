@@ -1,0 +1,42 @@
+@import "../../../styles/mixins/InputFields";
+
+.user-data-container{
+  display: flex;
+  flex-direction: column;
+
+  label{
+    margin-top: 0.5rem;
+  }
+}
+
+.profile-input {
+  @include standard-input;
+  padding: 0.5rem 1rem;
+}
+
+.input-button-container {
+  margin-top: 2rem;
+  display: flex;
+  justify-content: flex-end;
+
+  * {
+    cursor: pointer;
+  }
+
+  .input-save {
+    background-color: $main-action-color;
+    color: white;
+    border-radius: 5px;
+    border: none;
+    box-shadow: 2px 2px 9px 0px gray;
+    margin-left: 1rem;
+  }
+
+  .input-cancel{
+    border-radius: 5px;
+    border: none;
+    box-shadow: 2px 2px 9px 0px gray;
+    font-size: 0.9rem;
+
+  }
+}

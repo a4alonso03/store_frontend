@@ -9,7 +9,7 @@ class CartConfirmationItem extends Component {
                 <div className="cart-confirmation-item__data">
                     <p className="cart-conf-title">{this.props.product.name}</p>
                     <p className="cart-conf-price">{this.props.product.price} x {this.props.amount}</p>
-                    <p className="cart-conf-total">Item total: {(this.props.product.price * this.props.amount).toFixed(2)} </p>
+                    <p className="cart-conf-total">Item total: ${(this.props.product.price * this.props.amount).toFixed(2)} </p>
                 </div>
             </div>
         );

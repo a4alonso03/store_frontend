@@ -5,6 +5,8 @@ import {connect} from "react-redux";
 import {withRouter} from "react-router-dom";
 import * as ACTIONS from "../../../redux/ReducerActions";
 import './ConfirmationScreen.scss'
+import Alert from 'react-s-alert';
+
 
 
 class ConfirmationScreen extends Component {
@@ -16,6 +18,8 @@ class ConfirmationScreen extends Component {
             selectedCard: this.props.selectedCard
         };
         this.props.createPurchase(newPurchase);
+        Alert.success("Order created!", {});
+        this.props.history.push(ROUTES.ROOT);
 
     };
 
@@ -38,10 +42,10 @@ class ConfirmationScreen extends Component {
                     <div className="next-section-button" onClick={(event) => this.props.onSelectHandler(0, event)}>Modify Cart</div>
 
                 </div>
-
+                <div>   </div>
                 <div className="section-divider"/>
 
-                <h2>Your selected address: </h2>
+                <h2>Your selected address </h2>
                 <div className="address-review-container">
                     <h3>{this.props.selectedAddress.firstName} {this.props.selectedAddress.lastName}</h3>
                     <p>{this.props.selectedAddress.address.toUpperCase()}</p>
@@ -60,9 +64,10 @@ class ConfirmationScreen extends Component {
                     <p> Expires: {this.props.selectedCard.expiryDate} </p>
 
                 </div>
+                <div className="section-divider"/>
 
                 <div className="next-section-button" onClick={this.confirmPurchaseHandler}>Confirm Purchase</div>
-                <div className="next-section-button" onClick={() => this.props.history.push(ROUTES.ROOT)}>StartOver</div>
+                <div className="return-section-button next-section-button" onClick={() => this.props.history.push(ROUTES.ROOT)}>StartOver</div>
             </div>
         );
     }

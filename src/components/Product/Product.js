@@ -4,10 +4,10 @@ import Header from "../Header/Header";
 import {Col, Container, Row} from "react-bootstrap";
 import {getProductById} from "../../http/ProductRequests";
 import {withRouter} from "react-router-dom";
-import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
-import {faAngleDoubleDown} from '@fortawesome/free-solid-svg-icons'
 import * as ACTIONS from "../../redux/ReducerActions";
 import {connect} from "react-redux";
+import Alert from 'react-s-alert';
+
 
 
 class Product extends Component {
@@ -36,9 +36,6 @@ class Product extends Component {
         })
     }
 
-    handleScrollToElement(event) {
-        window.scrollTo(0, this.state.reviewsRef.current.offsetTop);
-    }
 
     addItemToCartHandler = () => {
         console.log(this.state.currentProduct);
@@ -46,6 +43,7 @@ class Product extends Component {
             amount: 1,
             product: this.state.currentProduct
         })
+        Alert.success("Item added to cart", {})
     };
 
 
@@ -65,15 +63,7 @@ class Product extends Component {
                             <div onClick={()=> this.addItemToCartHandler()} className="add-to-cart-button"> Add to cart</div>
                         </Col>
                         <Col xs={12} className="next-area-arrow-container">
-                            <FontAwesomeIcon
-                                onClick={evt => this.handleScrollToElement(evt)}
-                                icon={faAngleDoubleDown}/>
-                        </Col>
-                    </Row>
-                    <Row ref={this.state.reviewsRef}>
-                        <Col xs={12}>
-                            <h2>Reviews</h2>
-                            
+
                         </Col>
                     </Row>
                 </Container>

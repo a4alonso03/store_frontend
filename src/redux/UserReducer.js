@@ -1,4 +1,7 @@
 import * as ACTIONS from "./ReducerActions";
+import Alert from 'react-s-alert';
+
+
 
 const currentUser = {
     id: "3",
@@ -12,19 +15,48 @@ const selectedAddress = {
     firstName: "Alonso",
     lastName: "Garita",
     address: "First line address test",
-    secondAddress: "Second line address tset",
+    secondAddress: "Second line address test",
     cityTown: "Cartago",
     phone: "1234567",
     postalCode: "1000"
 };
 
-const selectedCard = {
+const selectedCard = {};
 
-}
+const purchases = [
+    {
+        address: {
+            address: "First line address test",
+            cityTown: "Cartago",
+            firstName: "Alonso",
+            id: 1,
+            lastName: "Garita",
+            phone: "1234567",
+            postalCode: "1000",
+            secondAddress: "Second line address tset"
+        },
+        selectedCard: {
+            cardName: "Alonso G.",
+            cvc: "222",
+            expiryDate: "some-date",
+            id: 2,
+            number: "1234",
+            user: null
+        },
+        items: [
+            {
+                amount: 2,
+                product: {
+                    id: 8,
+                    image: "https://image01.oneplus.net/ebp/201810/27/492/28fc2b95170c95497a4b22991d1a71c9_768_768.png",
+                    name: "OnePlus 6T 3D Tempered Glass Screen Protector",
+                    price: 20.95
+                }
+            }
+        ]
+    }
+];
 
-const purchases = {
-
-}
 
 
 const isUserLoggedIn = true;
@@ -42,6 +74,7 @@ export default function user(state = {currentUser, isUserLoggedIn, selectedAddre
             );
         case ACTIONS.LOGOUT_USER:
             localStorage.clear();
+            Alert.success("Logged out", {});
             return Object.assign(
                 {},
                 state, {
@@ -68,6 +101,7 @@ export default function user(state = {currentUser, isUserLoggedIn, selectedAddre
 
         case ACTIONS.CREATE_PURCHASE:
             let updatedPurchases = state.purchases;
+            console.log(action.purchase)
             purchases.push(action.purchase);
             return Object.assign(
                 {},

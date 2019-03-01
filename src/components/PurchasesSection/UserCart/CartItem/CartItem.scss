@@ -29,3 +29,38 @@
     width: 5rem;
   }
 }
+
+@media (min-width: 992px) {
+  .cart-item-container__data {
+  }
+
+
+  .react-numeric-input  b{
+    height: inherit;
+  }
+
+
+  .cart-item-container {
+    max-width: 50rem;
+    margin: 0 auto;
+
+    img {
+      max-width: 10rem;
+    }
+  }
+
+  .user-cart-container{
+    margin: 0 10rem;
+  }
+
+  .next-section-button {
+    max-width: 20rem;
+    margin-top: 2rem;
+    float: right;
+    margin-left: 3rem;
+  }
+
+  .cart-size {
+    margin-top: 2rem;
+  }
+}

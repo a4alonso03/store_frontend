@@ -1,0 +1,47 @@
+@import "../../../styles/partials/global";
+
+.user-addresses-container {
+  padding-top: 1rem;
+  margin-top: 2rem;
+  background-color: $card-background-color;
+}
+
+
+.user-address-item {
+  background-color: white;
+  box-sizing: border-box;
+  padding: 0.7rem;
+  margin: 0.7rem;
+  border-radius: 5px;
+}
+
+.create-address-form-container {
+  display: flex;
+  flex-direction: column;
+  max-width: 40rem;
+}
+
+.address-creation-input {
+  margin-bottom: 1rem;
+  padding-left: 1rem;
+}
+
+
+@media (min-width: 992px) {
+  .create-address-form-container {
+    margin: 0 auto;
+
+    h2 {
+      text-align: center;
+      margin-top: 3rem;
+    }
+
+    div {
+    }
+  }
+}
+
+
+
+
+

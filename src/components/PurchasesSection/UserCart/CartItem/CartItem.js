@@ -5,6 +5,8 @@ import NumericInput from 'react-numeric-input';
 import * as ACTIONS from "../../../../redux/ReducerActions";
 import {connect} from "react-redux";
 import './CartItem.scss'
+import Alert from 'react-s-alert';
+
 
 class CartItem extends Component {
     state = {
@@ -30,7 +32,9 @@ class CartItem extends Component {
     };
 
     handleItemDeletedFromCart = () => {
+
         this.props.deleteItemFromCart(this.props.id);
+        Alert.warning("Deleted item from cart", {})
     };
 
 
@@ -40,7 +44,7 @@ class CartItem extends Component {
                 <img src={this.props.image} alt="product"/>
                 <div className="cart-item-container__data">
                     <h2>{this.props.name}</h2>
-                    <p>{this.props.price}</p>
+                    <p>${this.props.price}</p>
                     <NumericInput min={1} max={100} value={this.state.itemCount}
                                   onChange={evt => this.handleNumberChange(evt)}/>
                 </div>

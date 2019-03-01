@@ -4,10 +4,6 @@ import React, {Component} from 'react';
 /** Styling **/
 import './Header.scss'
 import headerLogo from '../../img/one-plus.png';
-import audio from '../../img/audio.png'
-import cases from '../../img/cases.png'
-import gear from '../../img/gear.png'
-import powerCables from '../../img/powerCables.png'
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import {faUser, faShoppingCart} from '@fortawesome/free-solid-svg-icons'
 
@@ -23,12 +19,17 @@ import {connect} from "react-redux";
 
 class Header extends Component {
     state = {
-        menuOpen: false
+        menuOpen: false,
+        productFilterActivations: []
     };
 
     isMenuOpen = (state) => {
         return state.isOpen;
     };
+
+    componentDidMount() {
+        this.setState({productFilterActivations: this.props.productFilterActivations})
+    }
 
     userButtonRedirectHandler = () => {
         if (this.props.isUserLoggedIn) {
@@ -46,18 +47,14 @@ class Header extends Component {
         }
     };
 
+
     render() {
         let filters = null;
         let burger = null;
 
         if (this.props.showFilters) {
             filters = (
-                <div className="header__button-container">
-                    <HeaderButton className="header-button" image={audio} text="Audio"/>
-                    <HeaderButton className="header-button" image={cases} text="Cases"/>
-                    <HeaderButton className="header-button" image={gear} text="Gear"/>
-                    <HeaderButton className="header-button" image={powerCables} text="Power Cables"/>
-                </div>
+               <div/>
             );
             burger = (
                 <BurgerMenu
@@ -92,9 +89,24 @@ const mapStateToProps = state => {
     return (
         {
             isUserLoggedIn: state.user.isUserLoggedIn,
-            loggedInUser: state.user.currentUser
+            loggedInUser: state.user.currentUser,
+            productFilterActivations: state.product.productFilters
         }
     )
 };
 
 export default withRouter(connect(mapStateToProps, null)(Header));
+
+
+    /**
+     <div className="header__button-container">
+     <HeaderButton
+     className={this.state.productFilterActivations['Audio'] ? "header-button activated-filter" : "header-button"}
+     image={audio}
+     text="Audio"
+     onClick={() => this.selectFilterHandler('Audio')}/>
+     <HeaderButton className="header-button" image={cases} text="Cases"/>
+     <HeaderButton className="header-button" image={gear} text="Gear"/>
+     <HeaderButton className="header-button" image={powerCables} text="Power Cables"/>
+     </div>
+     */

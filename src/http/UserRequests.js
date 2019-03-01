@@ -43,14 +43,15 @@ export const updateUserInfo = userInfo => {
     return fetch(baseURL + user + "/", {
         method: 'put',
         headers: {
-            "Authorization": "Bearer " + localStorage.getItem('token')
+            "Authorization": "Bearer " + localStorage.getItem('token'),
+            "Content-Type": "application/json"
         },
         body: JSON.stringify({
-            id: userInfo.id,
-            username: userInfo.username,
-            password: "",
-            name: userInfo.name,
-            lastName: userInfo.lastName
+            "id": userInfo.id,
+            "username": userInfo.username,
+            "password": "",
+            "name": userInfo.name,
+            "lastName": userInfo.lastName
         })
     })
 };

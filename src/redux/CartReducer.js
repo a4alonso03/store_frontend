@@ -28,13 +28,19 @@ export default function cart(state = {onCartItems}, action) {
             );
 
         case ACTIONS.REMOVE_ITEM_FROM_CART:
+            debugger
             console.log("removing item: " + action.id + " from cart");
-            state.onCartItems.splice(state.onCartItems.find(productWrapper => productWrapper.product.id === action.id), 1);
-            console.log(onCartItems);
+            //state.onCartItems.splice(state.onCartItems.find(productWrapper => productWrapper.product.id === action.id), 1);
+            for (let i = 0; i <state.onCartItems.length; i++) {
+                if(state.onCartItems[i].product.id === action.id) {
+                    state.onCartItems.splice(i, 1);
+                }
+            }
+            console.log(state.onCartItems);
             return Object.assign(
                 {},
                 state, {
-                    onCartItems: [...onCartItems]
+                    onCartItems: [...state.onCartItems]
                 }
             );
 

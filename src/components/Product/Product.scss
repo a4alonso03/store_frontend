@@ -40,6 +40,32 @@
     padding: 0.8rem;
     margin-bottom: 3rem;
   }
+}
 
+@media (min-width: 992px) {
+  .product__image-container {
+    padding: 5rem;
+  }
 
+  .product__description-container {
+      margin: auto 0;
+
+    h2 {
+
+    }
+
+    div {
+
+    }
+
+    p {
+
+    }
+
+    .add-to-cart-button {
+      max-width: 25rem;
+      padding: 0.5rem;
+      margin: 0 auto;
+    }
+  }
 }

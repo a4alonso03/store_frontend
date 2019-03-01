@@ -6,6 +6,7 @@
 
   img {
     height: 9rem;
+    max-width: 9rem;
     flex: 3;
     margin-left: 1rem;
   }
@@ -21,3 +22,12 @@
   font-size: 0.6rem;
 }
 
+@media (min-width: 992px) {
+
+  .cart-confirmation-item {
+    img {
+      height: 12rem;
+      max-width: 12rem;
+    }
+  }
+}
